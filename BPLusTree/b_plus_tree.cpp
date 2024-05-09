@@ -110,10 +110,12 @@ void moveUp(Node *parent, string value, Node *leftChild, Node *rightChild){
         }
 
         parent->totalKeys -= (mark / 2 + 1);
+        // parent->totalKeys -= (mark / 2);
         secondNode->totalKeys = (mark / 2);
 
         // move up recursively
         moveUp(parent->parentNode, parent->word[parent->totalKeys], parent, secondNode);
+        // moveUp(parent->parentNode, secondNode->word[0], parent, secondNode);
     }
 }
 
@@ -219,6 +221,7 @@ int main(){
     cout << endl;
     if(buildBPlusTree()){
         cout << "Tree has been built successfully." << endl << endl;
+        // cout << "Hopsize: " << hopsize << endl <<endl;
         searchMeaning();
     }
     else{
